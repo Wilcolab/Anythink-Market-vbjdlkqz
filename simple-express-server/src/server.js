@@ -18,11 +18,6 @@ app.get('/', (req, res) => {
     res.send('Hello World');
 });
 
-// Get all tasks
-app.get('/tasks', (req, res) => {
-    res.json({ tasks });
-});
-
 // Add a new task
 app.post('/tasks', (req, res) => {
     const { text } = req.body;
@@ -31,6 +26,11 @@ app.post('/tasks', (req, res) => {
     }
     tasks.push(text);
     res.json({ message: 'Task added successfully' });
+});
+
+// Get all tasks
+app.get('/tasks', (req, res) => {
+    res.json({ tasks });
 });
 
 app.listen(PORT, () => {
